@@ -85,7 +85,7 @@ class CartoDarkMap extends React.Component {
       var coordinates = geolocation.getPosition();
       positionFeature.setGeometry(coordinates ?
         new Point(coordinates) : null);
-      console.log(coordinates)
+      // console.log(coordinates)
     });
 
     new VectorLayer({
