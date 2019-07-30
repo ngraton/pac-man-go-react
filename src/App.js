@@ -1,12 +1,15 @@
 import React from 'react';
 import './App.css';
 import OpenLayersMap from './components/OpenLayersMap';
+import {BrowserRouter as Router, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div>
-      <p>Hello World</p>
-      <OpenLayersMap />
+      <Router>
+        <Route exact path='/maps' component={OpenLayersMap} />
+
+      </Router>
     </div>
   );
 }

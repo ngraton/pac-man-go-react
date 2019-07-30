@@ -7,6 +7,7 @@ import Point from 'ol/geom/Point.js';
 import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer.js';
 import {OSM, Vector as VectorSource} from 'ol/source.js';
 import {Circle as CircleStyle, Fill, Stroke, Style} from 'ol/style.js';
+import './OpenLayersMap.css'
 
 class OpenLayersMap extends React.Component {
 
@@ -82,6 +83,7 @@ class OpenLayersMap extends React.Component {
       var coordinates = geolocation.getPosition();
       positionFeature.setGeometry(coordinates ?
         new Point(coordinates) : null);
+      console.log(coordinates)
     });
 
     new VectorLayer({
@@ -94,7 +96,7 @@ class OpenLayersMap extends React.Component {
   render() {
     return (
     <div>
-      <div id="map" className="map"></div>
+      <div id="map" className="OpenLayersMap"></div>
       <div id="info" ></div>
       <label htmlFor="track">
         track position
