@@ -7,11 +7,11 @@ import Point from 'ol/geom/Point.js';
 import {Tile as TileLayer, Vector as VectorLayer} from 'ol/layer.js';
 import {XYZ, Vector as VectorSource} from 'ol/source.js';
 import {Circle as CircleStyle, Fill, Stroke, Style} from 'ol/style.js';
-import './CartoDarkMap.css'
+import './PlayMap.css'
 import PacManLogo from "../images/XOsf.gif";
 
 
-class CartoDarkMap extends React.Component {
+class PlayMap extends React.Component {
 
   componentDidMount() {
     // eslint-disable-next-line
@@ -23,8 +23,8 @@ class CartoDarkMap extends React.Component {
       });
     } else {
       var view = new View({
-        center: [-9777777, 5142996],
-        zoom: 8
+        center: [-9754817.328516133, 5146707.653789921],
+        zoom: 16,
       });
     }
 
@@ -33,11 +33,18 @@ class CartoDarkMap extends React.Component {
         new TileLayer({
           source: new XYZ({ 
             url:'https://{1-4}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
-        })
-        })
+          })
+        }),
+        new TileLayer({
+          source: new XYZ({
+            url: 'https://api.mapbox.com/styles/v1/ngraton/cjywlihcr21vy1cpd8fc5kn3d/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibmdyYXRvbiIsImEiOiJjanl3anZtYWIwZHJ5M2hudjBxZTcyMWZwIn0.PKmSXMTZpQg5WTX6a9hUGA'
+          })
+        }),
       ],
       target: 'map',
-      view: view
+      view: view,
+      // controls: [],
+      // interactions: []
     });
 
     var geolocation = new Geolocation({
@@ -110,7 +117,7 @@ class CartoDarkMap extends React.Component {
   render() {
     return (
     <div>
-      <div id="map" className="CartoDarkMap"></div>
+      <div id="map" className="PlayMapMap"></div>
       <div id="info" ></div>
       <label htmlFor="track">
         Start Run:
@@ -128,4 +135,4 @@ class CartoDarkMap extends React.Component {
   }
 }
 
-export default CartoDarkMap;
+export default PlayMap;

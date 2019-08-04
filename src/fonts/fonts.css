@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
+
+
+@font-face {
+  font-family: 'pacfontregular';
+  src: url('pac-font-webfont.woff2') format('woff2'),
+       url('pac-font-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}

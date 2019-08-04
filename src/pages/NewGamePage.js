@@ -1,10 +1,14 @@
 import React from 'react';
-import OpenLayersMap from '../components/OpenLayersMap';
+import CartoDarkMap from '../components/CartoDarkMap';
+import { Button } from 'react-bootstrap';
 
 function NewGamePage() {
 
   return (
-    <OpenLayersMap />
+    <div>
+      <CartoDarkMap />
+      <Button type="submit" variant="outline-danger">Create Game</Button>
+    </div>
   )
 } 
 
