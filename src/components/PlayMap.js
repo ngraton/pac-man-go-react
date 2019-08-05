@@ -37,7 +37,7 @@ class PlayMap extends React.Component {
         }),
         new TileLayer({
           source: new XYZ({
-            url: 'https://api.mapbox.com/styles/v1/ngraton/cjywlihcr21vy1cpd8fc5kn3d/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibmdyYXRvbiIsImEiOiJjanl3anZtYWIwZHJ5M2hudjBxZTcyMWZwIn0.PKmSXMTZpQg5WTX6a9hUGA'
+            url: 'https://api.mapbox.com/styles/v1/ngraton/cjyxrgjdq34up1cmrjh30jevl/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoibmdyYXRvbiIsImEiOiJjanl3anZtYWIwZHJ5M2hudjBxZTcyMWZwIn0.PKmSXMTZpQg5WTX6a9hUGA'
           })
         }),
       ],
