@@ -17,17 +17,24 @@ function App() {
     return <Redirect to="/login" />
   }
 
+  const guestPlayRedirect = () => {
+    if(localStorage.getItem('id')){
+     return <HomePage />
+    }
+    return <Redirect to="/play" />;
+  }
+
   return (
     <div>
       <Router>
         <ForNavBar />
         <Switch>
-          <Route exact path='/' component={HomePage} />
+          <Route exact path='/play' component={PlayPage} />
+          <Route exact path='/' render={guestPlayRedirect} />
           <Route exact path='/logout' render={logout} />
           <Route exact path='/login' component={LoginPage} />
           <Route exact path='/newgame' component={NewGamePage} />
           <Route exact path='/game/:gameID' component={GamePage} />
-          <Route exact path='/play' component={PlayPage} />
           <Route component={NotFound404Page} />
 
         </Switch>
