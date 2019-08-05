@@ -1,12 +1,31 @@
 import React from 'react';
-// import OpenLayersMap from '../components/OpenLayersMap';
 import PlayMap from '../components/PlayMap';
+import { Button, ButtonToolbar, Row, Col, Container } from 'react-bootstrap';
 
 
 function PlayPage() {
 
+
+  // const [ isGameStarted, setIsGameStarted ] = React.useState(false);
+
+
   return (
-    <PlayMap />
+    <div>
+      <PlayMap />
+      {/* <ButtonToolbar>
+        <Container>
+          <Row>
+            <Col>
+              <Button variant="light" onClick={() => setIsGameStarted(true)} disabled={isGameStarted}>Start</Button>          
+            </Col>
+            <Col></Col>
+            <Col>
+              <Button variant="danger" onClick={() => setIsGameStarted(false)} disabled={!isGameStarted}>Quit</Button>
+            </Col>
+          </Row>
+        </Container>
+      </ButtonToolbar> */}
+    </div>
   )
 } 
 

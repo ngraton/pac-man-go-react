@@ -59,9 +59,23 @@ class PlayMap extends React.Component {
       return document.getElementById(id);
     }
 
-    el('track').addEventListener('change', function() {
-      geolocation.setTracking(this.checked);
-    });
+    el('start-btn').addEventListener("click", pressStart);
+    el('quit-btn').addEventListener("click", pressQuit);
+
+
+
+    function pressStart() {
+      geolocation.setTracking(true);
+      el('start-btn').disabled = true;
+      el('quit-btn').disabled = false;
+      console.log('Start');
+    };
+
+    function pressQuit() {
+      geolocation.setTracking(false);
+      el('quit-btn').disabled = true;
+      el('start-btn').disabled = false;
+    };
 
     // update the HTML page when the position changes.
     geolocation.on('change', function() {
@@ -88,7 +102,7 @@ class PlayMap extends React.Component {
     positionFeature.setStyle(new Style({
       image: 
         new CircleStyle({
-          radius: 6,
+          radius: 5,
           fill: new Fill({
             color: '#FFEE00'
           }),
@@ -119,10 +133,27 @@ class PlayMap extends React.Component {
     <div>
       <div id="map" className="PlayMapMap"></div>
       <div id="info" ></div>
-      <label htmlFor="track">
+      {/* <label htmlFor="track">
         Start Run:
         <input id="track" type="checkbox"/>
-      </label>
+      </label> */}
+      <div role="toolbar" class="btn-toolbar">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <button type="button" class="btn btn-light" id="start-btn" >
+                Start
+              </button>
+            </div>
+            <div class="col"/>
+            <div class="col">
+              <button type="button" class="btn btn-danger" id="quit-btn" disabled>
+                Quit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       {/* <p>
         position accuracy : <code id="accuracy"></code>&nbsp;&nbsp;
         altitude : <code id="altitude"></code>&nbsp;&nbsp;

@@ -12,6 +12,8 @@ import ForNavBar from './components/ForNavBar';
 
 function App() {
 
+
+
   const logout = () => {
     localStorage.clear()
     return <Redirect to="/login" />
