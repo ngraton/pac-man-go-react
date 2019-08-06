@@ -68,6 +68,10 @@ class PlayMap extends React.Component {
       geolocation.setTracking(true);
       el('start-btn').disabled = true;
       el('quit-btn').disabled = false;
+      map.setView(new View({
+        center: geolocation.getPosition(),
+        zoom: 16
+      }));
       console.log('Start');
     };
 
