@@ -43,7 +43,7 @@ class PlayMap extends React.Component {
       ],
       target: 'map',
       view: view,
-      // controls: [],
+      controls: [],
       // interactions: []
     });
 
@@ -68,19 +68,14 @@ class PlayMap extends React.Component {
       geolocation.setTracking(true);
       el('start-btn').disabled = true;
       el('quit-btn').disabled = false;
-      map.setView(new View({
-        center: geolocation.getPosition(),
-        zoom: 16
-      }));
-      console.log('Start');
     };
-
+    
     function pressQuit() {
       geolocation.setTracking(false);
       el('quit-btn').disabled = true;
       el('start-btn').disabled = false;
     };
-
+    
     // update the HTML page when the position changes.
     geolocation.on('change', function() {
       // el('accuracy').innerText = geolocation.getAccuracy() + ' [m]';
@@ -89,22 +84,22 @@ class PlayMap extends React.Component {
       // el('heading').innerText = geolocation.getHeading() + ' [rad]';
       // el('speed').innerText = geolocation.getSpeed() + ' [m/s]';
     });
-
+    
     // handle geolocation error.
     geolocation.on('error', function(error) {
       var info = document.getElementById('info');
       info.innerHTML = error.message;
       info.style.display = '';
     });
-
+    
     // var accuracyFeature = new Feature();
     // geolocation.on('change:accuracyGeometry', function() {
-    //   accuracyFeature.setGeometry(geolocation.getAccuracyGeometry());
-    // });
-
-    var positionFeature = new Feature();
-    positionFeature.setStyle(new Style({
-      image: 
+      //   accuracyFeature.setGeometry(geolocation.getAccuracyGeometry());
+      // });
+      
+      var positionFeature = new Feature();
+      positionFeature.setStyle(new Style({
+        image: 
         new CircleStyle({
           radius: 5,
           fill: new Fill({
@@ -115,13 +110,12 @@ class PlayMap extends React.Component {
             width: 2
           })
         })
-    }));
-
-    geolocation.on('change:position', function() {
-      var coordinates = geolocation.getPosition();
-      positionFeature.setGeometry(coordinates ?
-        new Point(coordinates) : null);
-      console.log(coordinates)
+      }));
+      
+      geolocation.on('change:position', function() {
+        var coordinates = geolocation.getPosition();
+        positionFeature.setGeometry(coordinates ? new Point(coordinates) : null);
+        map.getView().setCenter(coordinates);
     });
 
     new VectorLayer({
