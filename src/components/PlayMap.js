@@ -136,7 +136,7 @@ class PlayMap extends React.Component {
               <p class="text-center">Guest</p>
               <p class="text-center">00000</p>
             </div>
-            <div class="col"/>
+            {/* <div class="col"/> */}
             <div class="col">
               <p class="text-center">High Score</p>
               <p class="text-center">00000</p>
