@@ -96,26 +96,26 @@ class PlayMap extends React.Component {
     // geolocation.on('change:accuracyGeometry', function() {
       //   accuracyFeature.setGeometry(geolocation.getAccuracyGeometry());
       // });
-      
-      var positionFeature = new Feature();
-      positionFeature.setStyle(new Style({
-        image: 
-        new CircleStyle({
-          radius: 5,
-          fill: new Fill({
-            color: '#FFEE00'
-          }),
-          stroke: new Stroke({
-            color: '#FFEE00',
-            width: 2
-          })
+    
+    var positionFeature = new Feature();
+    positionFeature.setStyle(new Style({
+      image: 
+      new CircleStyle({
+        radius: 5,
+        fill: new Fill({
+          color: '#FFEE00'
+        }),
+        stroke: new Stroke({
+          color: '#FFEE00',
+          width: 2
         })
-      }));
+      })
+    }));
       
-      geolocation.on('change:position', function() {
-        var coordinates = geolocation.getPosition();
-        positionFeature.setGeometry(coordinates ? new Point(coordinates) : null);
-        map.getView().setCenter(coordinates);
+    geolocation.on('change:position', function() {
+      var coordinates = geolocation.getPosition();
+      positionFeature.setGeometry(coordinates ? new Point(coordinates) : null);
+      map.getView().setCenter(coordinates);
     });
 
     new VectorLayer({
@@ -129,6 +129,21 @@ class PlayMap extends React.Component {
   render() {
     return (
     <div>
+      <div role="toolbar" class="btn-toolbar">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <p class="text-center">Guest</p>
+              <p class="text-center">00000</p>
+            </div>
+            <div class="col"/>
+            <div class="col">
+              <p class="text-center">High Score</p>
+              <p class="text-center">00000</p>
+            </div>
+          </div>
+        </div>
+      </div>
       <div id="map" className="PlayMapMap"></div>
       <div id="info" ></div>
       {/* <label htmlFor="track">
@@ -139,26 +154,24 @@ class PlayMap extends React.Component {
         <div class="container">
           <div class="row">
             <div class="col">
-              <button type="button" class="btn btn-light" id="start-btn" >
-                Start
-              </button>
+              <div class="text-center">
+                <button type="button" class="btn btn-light" id="start-btn" >
+                  Start
+                </button>
+              </div>
             </div>
             <div class="col"/>
             <div class="col">
-              <button type="button" class="btn btn-danger" id="quit-btn" disabled>
-                Quit
-              </button>
+              <div class="text-center">
+                <button type="button" class="btn btn-danger" id="quit-btn" disabled>
+                  Quit
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      {/* <p>
-        position accuracy : <code id="accuracy"></code>&nbsp;&nbsp;
-        altitude : <code id="altitude"></code>&nbsp;&nbsp;
-        altitude accuracy : <code id="altitudeAccuracy"></code>&nbsp;&nbsp;
-        heading : <code id="heading"></code>&nbsp;&nbsp;
-        speed : <code id="speed"></code>
-      </p> */}
+
     </div>
     )
   }
