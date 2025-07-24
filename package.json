@@ -33,6 +33,6 @@
     ]
   },
   "devDependencies": {
-    "react-openlayers": "^0.2.1"
+    "react-openlayers": "^10.3.0"
   }
 }
