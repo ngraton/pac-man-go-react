@@ -6,7 +6,7 @@
     "bootstrap": "^5.0.0",
     "ol": "^5.3.3",
     "react": "^16.8.6",
-    "react-bootstrap": "^1.0.0-beta.10",
+    "react-bootstrap": "^1.6.8",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
     "react-scripts": "^5.0.1"
